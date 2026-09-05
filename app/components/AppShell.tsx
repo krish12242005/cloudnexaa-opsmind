@@ -44,34 +44,70 @@ const groups: {
     label: "Workspace",
     items: [
       { label: "Overview", href: "/", icon: Gauge },
-      { label: "Infrastructure", href: "/infrastructure", icon: Boxes },
+      { label: "Dashboard", href: "/dashboard", icon: Gauge },
+    ],
+  },
+  {
+    label: "Operations",
+    items: [
+      { label: "Operations", href: "/operations", icon: Boxes },
+      { label: "Live Operations", href: "/operations/live", icon: Activity },
+      { label: "Operations Timeline", href: "/operations/timeline", icon: FileClock },
+      { label: "Infrastructure", href: "/infrastructure", icon: Network },
       { label: "Observability", href: "/observability", icon: Activity },
       { label: "Incidents", href: "/incidents", icon: Siren },
     ],
   },
   {
-    label: "Intelligence",
+    label: "Cloud Intelligence",
     items: [
+      { label: "Resource Intelligence", href: "/resource-intelligence", icon: Radar },
       { label: "Cloud Doctor", href: "/cloud-doctor", icon: Stethoscope },
-      { label: "Scan Center", href: "/scan", icon: Radar },
-      { label: "Security", href: "/security", icon: ShieldCheck },
-      { label: "Cost Intelligence", href: "/costs", icon: DollarSign },
-      { label: "Automation", href: "/automation", icon: Zap },
-      { label: "Remediation", href: "/remediation", icon: HeartPulse },
+      { label: "Scan Center", href: "/scan", icon: ScanLine },
+      { label: "Insights", href: "/insights", icon: Activity },
     ],
   },
   {
-    label: "Platform",
+    label: "Security",
     items: [
-      { label: "Kubernetes", href: "/kubernetes", icon: Network },
+      { label: "Security Center", href: "/security", icon: ShieldCheck },
+      { label: "Security Exposure", href: "/security-exposure", icon: ShieldCheck },
+    ],
+  },
+  {
+    label: "Reliability",
+    items: [
+      { label: "Remediation", href: "/remediation", icon: HeartPulse },
+      { label: "Automation", href: "/automation", icon: Zap },
+      { label: "Automation History", href: "/automation/history", icon: FileClock },
+    ],
+  },
+  {
+    label: "Engineering",
+    items: [
       { label: "DevOps", href: "/devops", icon: Cpu },
+      { label: "Kubernetes", href: "/kubernetes", icon: Network },
+    ],
+  },
+  {
+    label: "Finance",
+    items: [
+      { label: "Cost Intelligence", href: "/costs", icon: DollarSign },
+    ],
+  },
+  {
+    label: "Assessment",
+    items: [
       { label: "Project Assessment", href: "/assessment", icon: Search },
-      { label: "Audit History", href: "/automation/history", icon: FileClock },
-      { label: "Settings", href: "/settings/aws", icon: Settings },
+    ],
+  },
+  {
+    label: "Settings",
+    items: [
+      { label: "AWS Settings", href: "/settings/aws", icon: Settings },
     ],
   },
 ];
-
 export default function AppShell({
   children,
 }: {
