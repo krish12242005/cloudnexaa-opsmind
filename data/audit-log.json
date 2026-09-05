@@ -1,0 +1,47 @@
+[
+  {
+    "id": "AUDIT-1788591897247",
+    "findingId": "SEC-EC2-002",
+    "action": "Resolve security finding",
+    "resource": "EC2 - 9 EC2 instances discovered",
+    "status": "resolved",
+    "awsChanges": "none",
+    "timestamp": "2026-09-05T07:04:57.243Z"
+  },
+  {
+    "id": "AUDIT-1788585579895",
+    "automationId": "AUTO-EC2-001",
+    "action": "Review stopped instances",
+    "resource": "EC2 (7 targets)",
+    "status": "validated",
+    "awsChanges": "none",
+    "timestamp": "2026-09-05T05:19:39.895Z"
+  },
+  {
+    "id": "AUDIT-1788544541207",
+    "automationId": "AUTO-EC2-002",
+    "action": "Infrastructure health review",
+    "resource": "EC2 (9 targets)",
+    "status": "validated",
+    "awsChanges": "none",
+    "timestamp": "2026-09-04T17:55:41.207Z"
+  },
+  {
+    "id": "AUDIT-1788544530099",
+    "automationId": "AUTO-EC2-001",
+    "action": "Review stopped instances",
+    "resource": "EC2 (7 targets)",
+    "status": "validated",
+    "awsChanges": "none",
+    "timestamp": "2026-09-04T17:55:30.099Z"
+  },
+  {
+    "id": "AUDIT-1788544454169",
+    "automationId": "AUTO-EC2-001",
+    "action": "Review stopped instances",
+    "resource": "EC2 (7 targets)",
+    "status": "validated",
+    "awsChanges": "none",
+    "timestamp": "2026-09-04T17:54:14.169Z"
+  }
+]

@@ -1,0 +1,13 @@
+[
+  {
+    "id": "SEC-WF-1788591897243",
+    "findingId": "SEC-EC2-002",
+    "title": "9 EC2 instances discovered",
+    "service": "EC2",
+    "severity": "healthy",
+    "status": "resolved",
+    "createdAt": "2026-09-05T07:04:57.243Z",
+    "updatedAt": "2026-09-05T07:04:57.243Z",
+    "resolvedAt": "2026-09-05T07:04:57.243Z"
+  }
+]

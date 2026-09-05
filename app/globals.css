@@ -24,3 +24,553 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* =========================================================
+   CLOUDNEXAA OPSMIND Ã¢â‚¬â€ PREMIUM SAAS DESIGN SYSTEM
+   UI ONLY Ã¢â‚¬â€ NO API / BACKEND / CONTENT CHANGES
+   ========================================================= */
+
+:root {
+  --ops-bg: #050816;
+  --ops-bg-soft: #080d1d;
+  --ops-surface: rgba(14, 20, 38, 0.78);
+  --ops-surface-solid: #0d1426;
+  --ops-border: rgba(148, 163, 184, 0.12);
+  --ops-border-hover: rgba(0, 212, 255, 0.30);
+  --ops-text: #f8fafc;
+  --ops-muted: #94a3b8;
+  --ops-blue: #0066ff;
+  --ops-cyan: #00d4ff;
+  --ops-purple: #8b5cf6;
+  --ops-radius: 22px;
+}
+
+/* ---------- BASE ---------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(
+      circle at 80% -10%,
+      rgba(0, 102, 255, 0.13),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(139, 92, 246, 0.08),
+      transparent 28%
+    ),
+    var(--ops-bg) !important;
+
+  color: var(--ops-text);
+  font-feature-settings: "cv11", "ss01";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- SCROLLBAR ---------- */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.22) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.20);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 212, 255, 0.38);
+}
+
+/* ---------- SELECTION ---------- */
+
+::selection {
+  background: rgba(0, 102, 255, 0.35);
+  color: white;
+}
+
+/* ---------- MAIN APP SURFACES ---------- */
+
+[class*="rounded-xl"],
+[class*="rounded-[20px]"],
+[class*="rounded-[24px]"] {
+  transition:
+    border-color 220ms ease,
+    background 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+/* Premium cards */
+
+[class*="rounded-xl"].border,
+[class*="rounded-[20px]"].border,
+[class*="rounded-[24px]"].border {
+  border-color: var(--ops-border) !important;
+}
+
+/* Hover cards */
+
+[class*="rounded-xl"].border:hover,
+[class*="rounded-[20px]"].border:hover,
+[class*="rounded-[24px]"].border:hover {
+  border-color: var(--ops-border-hover) !important;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.24),
+    0 0 0 1px rgba(0, 212, 255, 0.025);
+}
+
+/* ---------- TYPOGRAPHY ---------- */
+
+h1 {
+  letter-spacing: -0.045em !important;
+  font-weight: 750 !important;
+}
+
+h2 {
+  letter-spacing: -0.035em !important;
+  font-weight: 720 !important;
+}
+
+h3 {
+  letter-spacing: -0.025em !important;
+  font-weight: 680 !important;
+}
+
+h4 {
+  letter-spacing: -0.018em !important;
+}
+
+/* ---------- BUTTONS ---------- */
+
+button {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    opacity 180ms ease !important;
+}
+
+button:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+button:not(:disabled):active {
+  transform: translateY(0);
+}
+
+/* ---------- PRIMARY BUTTONS ---------- */
+
+button[class*="bg-blue"],
+button[class*="bg-cyan"],
+a[class*="bg-blue"],
+a[class*="bg-cyan"] {
+  box-shadow:
+    0 8px 28px rgba(0, 102, 255, 0.18);
+}
+
+button[class*="bg-blue"]:hover,
+button[class*="bg-cyan"]:hover,
+a[class*="bg-blue"]:hover,
+a[class*="bg-cyan"]:hover {
+  box-shadow:
+    0 12px 36px rgba(0, 102, 255, 0.28);
+}
+
+/* ---------- INPUTS ---------- */
+
+input,
+textarea,
+select {
+  background-color: rgba(8, 13, 29, 0.72) !important;
+  border-color: rgba(148, 163, 184, 0.14) !important;
+  color: var(--ops-text) !important;
+  border-radius: 13px !important;
+  outline: none !important;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: rgba(0, 212, 255, 0.48) !important;
+  box-shadow:
+    0 0 0 3px rgba(0, 212, 255, 0.07) !important;
+}
+
+/* ---------- TABLES ---------- */
+
+table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+thead th {
+  color: #94a3b8 !important;
+  font-size: 0.72rem !important;
+  font-weight: 650 !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+tbody tr {
+  transition:
+    background 160ms ease,
+    border-color 160ms ease;
+}
+
+tbody tr:hover {
+  background: rgba(0, 102, 255, 0.035) !important;
+}
+
+/* ---------- STATUS BADGES ---------- */
+
+[class*="text-emerald"],
+[class*="text-green"] {
+  text-shadow: 0 0 18px rgba(52, 211, 153, 0.18);
+}
+
+[class*="text-red"],
+[class*="text-rose"] {
+  text-shadow: 0 0 18px rgba(248, 113, 113, 0.18);
+}
+
+[class*="text-amber"],
+[class*="text-yellow"] {
+  text-shadow: 0 0 18px rgba(251, 191, 36, 0.18);
+}
+
+/* ---------- GRADIENT HEADINGS ---------- */
+
+.bg-gradient-to-r.from-blue-500,
+.bg-gradient-to-r.from-cyan-400 {
+  background-image:
+    linear-gradient(
+      100deg,
+      #ffffff 0%,
+      #dbeafe 42%,
+      #67e8f9 100%
+    ) !important;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+/* ---------- NAVIGATION ---------- */
+
+nav {
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* ---------- SIDEBAR ---------- */
+
+aside {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 12, 27, 0.96),
+      rgba(5, 8, 22, 0.94)
+    ) !important;
+
+  border-color: rgba(148, 163, 184, 0.10) !important;
+}
+
+/* ---------- GLASS SURFACE ---------- */
+
+.backdrop-blur,
+[class*="backdrop-blur"] {
+  backdrop-filter: blur(18px) saturate(125%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(125%) !important;
+}
+
+/* ---------- MODALS ---------- */
+
+[role="dialog"] {
+  border-color: rgba(148, 163, 184, 0.14) !important;
+  box-shadow:
+    0 35px 100px rgba(0, 0, 0, 0.55),
+    0 0 80px rgba(0, 102, 255, 0.06) !important;
+}
+
+/* ---------- ICON CONTAINERS ---------- */
+
+[class*="bg-[#F6E8DF]/"],
+[class*="bg-cyan-500/"],
+[class*="bg-[#4A322A]/"] {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+[class*="bg-[#F6E8DF]/"]:hover,
+[class*="bg-cyan-500/"]:hover,
+[class*="bg-[#4A322A]/"]:hover {
+  transform: translateY(-1px);
+}
+
+/* ---------- PREMIUM GLOW ---------- */
+
+@keyframes opsmindPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.opsmind-glow {
+  animation: opsmindPulse 4s ease-in-out infinite;
+}
+
+/* ---------- PAGE ENTER ---------- */
+
+@keyframes opsmindPageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: opsmindPageEnter 420ms ease-out both;
+}
+
+/* ---------- FOCUS ---------- */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid rgba(0, 212, 255, 0.55) !important;
+  outline-offset: 3px;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 768px) {
+
+  h1 {
+    letter-spacing: -0.035em !important;
+  }
+
+  h2 {
+    letter-spacing: -0.025em !important;
+  }
+
+  [class*="rounded-[24px]"] {
+    border-radius: 18px !important;
+  }
+
+  [class*="rounded-[20px]"] {
+    border-radius: 16px !important;
+  }
+
+  [class*="rounded-xl"] {
+    border-radius: 14px !important;
+  }
+
+  button {
+    min-height: 40px;
+  }
+
+  table {
+    min-width: 680px;
+  }
+
+}
+
+/* ---------- REDUCE MOTION ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* ============================================================
+   CLOUDNEXAA OPSMIND â€” PREMIUM BLACK APPLICATION SYSTEM
+   Visual direction inspired by premium SaaS interfaces.
+   Existing content/functionality preserved.
+   ============================================================ */
+
+:root {
+  --ops-black: #040404;
+  --ops-surface: #0B0B0B;
+  --ops-surface-2: #111111;
+  --ops-border: #242424;
+  --ops-border-soft: #1A1A1A;
+
+  --ops-cream: #F6E8DF;
+  --ops-cream-soft: #E8DDD7;
+
+  --ops-muted: #9B9B9B;
+  --ops-muted-2: #777C85;
+
+  --ops-brown: #4A322A;
+  --ops-green: #B7D1C5;
+  --ops-orange: #FA4A0D;
+}
+
+/* Application background */
+html,
+body {
+  background: var(--ops-black) !important;
+  color: var(--ops-cream);
+}
+
+/* Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2A2A2A #040404;
+}
+
+*::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #040404;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #2A2A2A;
+  border-radius: 999px;
+}
+
+/* Selection */
+::selection {
+  background: #F6E8DF;
+  color: #040404;
+}
+
+/* Inputs */
+input,
+textarea,
+select {
+  color-scheme: dark;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #777C85;
+}
+
+/* Premium focus */
+input:focus,
+textarea:focus,
+select:focus,
+button:focus-visible {
+  outline-color: #F6E8DF;
+}
+
+/* Cards */
+[class*="bg-[#0B0B0B]"],
+[class*="bg-[#111111]"] {
+  border-color: #242424;
+}
+
+/* Subtle application surfaces */
+.ops-surface {
+  background: #0B0B0B;
+  border: 1px solid #242424;
+}
+
+.ops-surface-soft {
+  background: #111111;
+  border: 1px solid #1A1A1A;
+}
+
+/* Premium orange action */
+.ops-accent {
+  background: #FA4A0D;
+  color: #040404;
+}
+
+.ops-accent:hover {
+  background: #ff5a20;
+}
+
+/* Premium cream action */
+.ops-primary {
+  background: #F6E8DF;
+  color: #040404;
+}
+
+.ops-primary:hover {
+  background: #E8D8CF;
+}
+
+/* Thin dividers */
+.ops-divider {
+  border-color: #242424;
+}
+
+/* Smooth app feel */
+button,
+a,
+input,
+textarea,
+select {
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+/* Avoid marketing-site appearance */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Mobile application spacing */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  main {
+    min-width: 0;
+  }
+
+  table {
+    min-width: 640px;
+  }
+}

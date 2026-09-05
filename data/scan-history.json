@@ -1,0 +1,155 @@
+[
+  {
+    "scanId": "SCAN-1788597538270",
+    "region": "ap-south-1",
+    "startedAt": "2026-09-05T08:38:58.270Z",
+    "durationMs": 745,
+    "partial": false,
+    "permissionIssues": [],
+    "summary": {
+      "totalResources": 27,
+      "totalFindings": 19,
+      "critical": 3,
+      "warnings": 5,
+      "healthy": 5,
+      "info": 6,
+      "score": 0
+    }
+  },
+  {
+    "scanId": "SCAN-1788597528583",
+    "region": "ap-south-1",
+    "startedAt": "2026-09-05T08:38:48.583Z",
+    "durationMs": 2120,
+    "partial": false,
+    "permissionIssues": [],
+    "summary": {
+      "totalResources": 27,
+      "totalFindings": 19,
+      "critical": 3,
+      "warnings": 5,
+      "healthy": 5,
+      "info": 6,
+      "score": 0
+    }
+  },
+  {
+    "scanId": "SCAN-1788597443818",
+    "region": "ap-south-1",
+    "startedAt": "2026-09-05T08:37:23.818Z",
+    "durationMs": 2248,
+    "partial": false,
+    "permissionIssues": [],
+    "summary": {
+      "totalResources": 27,
+      "totalFindings": 19,
+      "critical": 3,
+      "warnings": 5,
+      "healthy": 5,
+      "info": 6,
+      "score": 0
+    }
+  },
+  {
+    "scanId": "SCAN-1788596498725",
+    "region": "ap-south-1",
+    "startedAt": "2026-09-05T08:21:38.725Z",
+    "durationMs": 1137,
+    "partial": false,
+    "permissionIssues": [],
+    "summary": {
+      "totalResources": 27,
+      "totalFindings": 19,
+      "critical": 3,
+      "warnings": 5,
+      "healthy": 5,
+      "info": 6,
+      "score": 0
+    }
+  },
+  {
+    "scanId": "SCAN-1788596496379",
+    "region": "ap-south-1",
+    "startedAt": "2026-09-05T08:21:36.379Z",
+    "durationMs": 634,
+    "partial": false,
+    "permissionIssues": [],
+    "summary": {
+      "totalResources": 27,
+      "totalFindings": 19,
+      "critical": 3,
+      "warnings": 5,
+      "healthy": 5,
+      "info": 6,
+      "score": 0
+    }
+  },
+  {
+    "scanId": "SCAN-1788596494737",
+    "region": "ap-south-1",
+    "startedAt": "2026-09-05T08:21:34.737Z",
+    "durationMs": 571,
+    "partial": false,
+    "permissionIssues": [],
+    "summary": {
+      "totalResources": 27,
+      "totalFindings": 19,
+      "critical": 3,
+      "warnings": 5,
+      "healthy": 5,
+      "info": 6,
+      "score": 0
+    }
+  },
+  {
+    "scanId": "SCAN-1788596487946",
+    "region": "ap-south-1",
+    "startedAt": "2026-09-05T08:21:27.946Z",
+    "durationMs": 1434,
+    "partial": false,
+    "permissionIssues": [],
+    "summary": {
+      "totalResources": 27,
+      "totalFindings": 19,
+      "critical": 3,
+      "warnings": 5,
+      "healthy": 5,
+      "info": 6,
+      "score": 0
+    }
+  },
+  {
+    "scanId": "SCAN-1788596394898",
+    "region": "ap-south-1",
+    "startedAt": "2026-09-05T08:19:54.898Z",
+    "durationMs": 1035,
+    "partial": false,
+    "permissionIssues": [],
+    "summary": {
+      "totalResources": 27,
+      "totalFindings": 19,
+      "critical": 3,
+      "warnings": 5,
+      "healthy": 5,
+      "info": 6,
+      "score": 0
+    }
+  },
+  {
+    "scanId": "SCAN-1788596389987",
+    "region": "ap-south-1",
+    "startedAt": "2026-09-05T08:19:49.987Z",
+    "durationMs": 2235,
+    "partial": false,
+    "permissionIssues": [],
+    "summary": {
+      "totalResources": 27,
+      "totalFindings": 19,
+      "critical": 3,
+      "warnings": 5,
+      "healthy": 5,
+      "info": 6,
+      "score": 0
+    }
+  }
+]
