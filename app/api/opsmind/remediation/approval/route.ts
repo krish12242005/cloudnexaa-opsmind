@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { POST as executeRemediation } from "../../remediate/route";
+
 
 type Status =
   | "pending_approval"
@@ -11,6 +13,7 @@ type Status =
 type ApprovalRecord = {
   id: string;
   remediationId: string;
+  groupId?: string;
   service: string;
   action: string;
   targetCount: number;
@@ -129,6 +132,7 @@ export async function POST(request: Request) {
     const remediationId = String(body?.remediationId || "");
     const service = String(body?.service || "");
     const action = String(body?.action || "");
+    const groupId = String(body?.groupId || "");
     const targetCount = Number(body?.targetCount || 0);
 
     const requestedRisk = String(body?.risk || "medium");
@@ -222,6 +226,9 @@ export async function POST(request: Request) {
       }
 
       record.status = "approved";
+      if (groupId) {
+        record.groupId = groupId;
+      }
       record.updatedAt = now;
       record.approvedAt = now;
 
@@ -239,14 +246,126 @@ export async function POST(request: Request) {
         timestamp: now,
       });
 
+      if (!record.groupId) {
+        return NextResponse.json({
+          success: true,
+          message:
+            "Remediation approved. Execution is waiting for a verified security group target.",
+          approval: record,
+          execution: {
+            status: "gated",
+            awsChanges: "none",
+          },
+        });
+      }
+
+      const remediationAction =
+        record.action === "remove-public-ssh"
+          ? "remove-public-ssh"
+          : record.action === "remove-public-rdp"
+            ? "remove-public-rdp"
+            : null;
+
+      if (!remediationAction) {
+        return NextResponse.json(
+          {
+            success: false,
+            error:
+              "Approved remediation has no supported executable AWS action.",
+          },
+          { status: 409 }
+        );
+      }
+
+      const executionRequest = new Request(
+        new URL("/api/opsmind/remediate", request.url),
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({
+            groupId: record.groupId,
+            action: remediationAction,
+            dryRun: false,
+          }),
+        }
+      );
+
+      const executionResponse = await executeRemediation(
+        executionRequest
+      );
+
+      const executionResult = await executionResponse.json();
+
+      if (
+        !executionResponse.ok ||
+        !executionResult.success
+      ) {
+        appendAudit({
+          id: `AUDIT-${Date.now()}`,
+          remediationId: record.remediationId,
+          action: record.action,
+          resource: `${record.service} (${record.targetCount} target${
+            record.targetCount === 1 ? "" : "s"
+          })`,
+          status: "execution_failed",
+          awsChanges: "failed",
+          timestamp: new Date().toISOString(),
+          error:
+            executionResult?.error ||
+            "Remediation execution failed.",
+        });
+
+        return NextResponse.json(
+          {
+            success: false,
+            message: "Remediation was approved but AWS execution failed.",
+            approval: record,
+            execution: {
+              status: "failed",
+              awsChanges: "none",
+              result: executionResult,
+            },
+          },
+          { status: 502 }
+        );
+      }
+
+      record.updatedAt = new Date().toISOString();
+      writeRecords(records);
+
+      appendAudit({
+        id: `AUDIT-${Date.now()}`,
+        remediationId: record.remediationId,
+        action: record.action,
+        resource: `${record.service} (${record.targetCount} target${
+          record.targetCount === 1 ? "" : "s"
+        })`,
+        status: "executed",
+        awsChanges:
+          executionResult.changed === true
+            ? "applied"
+            : "none",
+        timestamp: new Date().toISOString(),
+      });
+
       return NextResponse.json({
         success: true,
         message:
-          "Remediation approved. Execution remains behind the execution gate.",
+          executionResult.message ||
+          "Approved remediation executed successfully.",
         approval: record,
         execution: {
-          status: "gated",
-          awsChanges: "none",
+          status:
+            executionResult.changed === true
+              ? "executed"
+              : "completed_no_change",
+          awsChanges:
+            executionResult.changed === true
+              ? "applied"
+              : "none",
+          result: executionResult,
         },
       });
     }

@@ -1,4 +1,4 @@
-﻿import {
+import {
   DescribeInstancesCommand,
   EC2Client,
   Instance,
@@ -22,8 +22,12 @@ export async function getEC2Instances(): Promise<NormalizedEC2Instance[]> {
       (reservation) => reservation.Instances ?? []
     ) ?? [];
 
-  return instances.map((instance) => ({
-    ...instance,
-    state: instance.State?.Name ?? "unknown",
-  }));
+  return instances.map((instance) => {
+    const { State: _awsState, ...instanceWithoutState } = instance;
+
+    return {
+      ...instanceWithoutState,
+      state: instance.State?.Name ?? "unknown",
+    };
+  });
 }
