@@ -1,0 +1,294 @@
+﻿/* ============================================================
+   CLOUDNEXAA OPSMIND — FINAL PREMIUM UI
+   Visual-only layer. No backend/AWS changes.
+   ============================================================ */
+
+:root {
+  --cx-blue: #0066ff;
+  --cx-cyan: #00d4ff;
+}
+
+/* ------------------------------------------------------------
+   GLOBAL INTERACTION
+   ------------------------------------------------------------ */
+
+button,
+a,
+[role="button"] {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease,
+    opacity 180ms ease !important;
+}
+
+/* ------------------------------------------------------------
+   NAVIGATION HOVER
+   ------------------------------------------------------------ */
+
+nav a,
+aside a,
+nav button,
+aside button {
+  position: relative;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease !important;
+}
+
+nav a:hover,
+aside a:hover,
+nav button:hover,
+aside button:hover {
+  transform: translateX(3px);
+  background: rgba(0, 102, 255, 0.07) !important;
+  color: #ffffff !important;
+}
+
+/* ------------------------------------------------------------
+   ACTIVE NAVIGATION
+   ------------------------------------------------------------ */
+
+nav a[aria-current="page"],
+aside a[aria-current="page"] {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 102, 255, 0.16),
+      rgba(0, 212, 255, 0.055)
+    ) !important;
+
+  box-shadow:
+    inset 3px 0 0 var(--cx-cyan),
+    0 8px 24px rgba(0, 102, 255, 0.07);
+
+  color: #ffffff !important;
+}
+
+/* ------------------------------------------------------------
+   CARDS
+   ------------------------------------------------------------ */
+
+[class*="rounded-xl"],
+[class*="rounded-2xl"] {
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease !important;
+}
+
+[class*="rounded-xl"]:hover,
+[class*="rounded-2xl"]:hover {
+  border-color: rgba(0, 212, 255, 0.18) !important;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.16),
+    0 0 26px rgba(0, 102, 255, 0.045);
+}
+
+/* ------------------------------------------------------------
+   BUTTONS
+   ------------------------------------------------------------ */
+
+button:hover {
+  box-shadow:
+    0 8px 24px rgba(0, 102, 255, 0.09);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* ------------------------------------------------------------
+   INPUTS
+   ------------------------------------------------------------ */
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  border-color: rgba(0, 212, 255, 0.42) !important;
+
+  box-shadow:
+    0 0 0 3px rgba(0, 102, 255, 0.08),
+    0 0 22px rgba(0, 212, 255, 0.045);
+}
+
+/* ------------------------------------------------------------
+   ICON MICRO-INTERACTION
+   ------------------------------------------------------------ */
+
+button:hover svg,
+a:hover svg {
+  transition: transform 180ms ease, filter 180ms ease;
+  transform: scale(1.04);
+  filter: drop-shadow(0 0 6px rgba(0, 212, 255, 0.16));
+}
+
+/* ------------------------------------------------------------
+   STATUS / BADGE POLISH
+   ------------------------------------------------------------ */
+
+[class*="badge"],
+[class*="Badge"] {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* ------------------------------------------------------------
+   MAIN CONTENT
+   ------------------------------------------------------------ */
+
+main {
+  animation: cx-enter 220ms ease-out;
+}
+
+@keyframes cx-enter {
+  from {
+    opacity: 0.92;
+    transform: translateY(3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------------------------------------------------
+   SCROLLBAR
+   ------------------------------------------------------------ */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 212, 255, 0.22) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 102, 255, 0.45),
+    rgba(0, 212, 255, 0.28)
+  );
+}
+
+/* ------------------------------------------------------------
+   SELECTION
+   ------------------------------------------------------------ */
+
+::selection {
+  background: rgba(0, 102, 255, 0.25);
+  color: #ffffff;
+}
+
+/* ------------------------------------------------------------
+   ACCESSIBILITY
+   ------------------------------------------------------------ */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid rgba(0, 212, 255, 0.48);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+/* ============================================================
+   CLOUDNEXAA — FINAL MICRO POLISH
+   ============================================================ */
+
+/* Sidebar links */
+aside a,
+aside button {
+  border-radius: 10px !important;
+}
+
+aside a:hover,
+aside button:hover {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 102, 255, 0.10),
+      rgba(0, 212, 255, 0.035)
+    ) !important;
+
+  transform: translateX(3px);
+}
+
+/* Active navigation */
+aside a[aria-current="page"] {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 102, 255, 0.15),
+      rgba(0, 212, 255, 0.055)
+    ) !important;
+
+  box-shadow:
+    inset 3px 0 0 #00d4ff,
+    0 0 18px rgba(0, 102, 255, 0.06);
+
+  color: #ffffff !important;
+}
+
+/* Top action buttons */
+header button:hover {
+  border-color: rgba(0, 212, 255, 0.20) !important;
+  background: rgba(0, 102, 255, 0.065) !important;
+}
+
+/* Dashboard metric cards */
+main [class*="rounded-xl"]:hover {
+  transform: translateY(-2px);
+}
+
+/* Keep larger panels calmer */
+main [class*="rounded-2xl"]:hover {
+  transform: translateY(-1px);
+}
+
+/* Softer interaction */
+aside a,
+aside button,
+header button,
+main [class*="rounded-xl"],
+main [class*="rounded-2xl"] {
+  will-change: transform;
+}
+
+/* Cloud/product accent for small status indicators */
+main [class*="rounded-full"] {
+  transition:
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease !important;
+}
+
+main [class*="rounded-full"]:hover {
+  box-shadow: 0 0 14px rgba(0, 212, 255, 0.10);
+}
+

@@ -62,8 +62,8 @@ function iconFor(id: string) {
   }
 }
 
-function categoryStyle(category: string) {
-  const value = category.toLowerCase();
+function categoryStyle(category: string = "") {
+  const value = (category ?? "").toLowerCase();
 
   if (value.includes("source") || value.includes("git")) {
     return "border-violet-400/15 bg-violet-400/[0.04] text-violet-300";
@@ -269,20 +269,20 @@ export default function DevOpsPage() {
 
           <SummaryCard
             label="Total Checks"
-            value={loading ? "—" : data?.summary.totalChecks ?? checks.length}
+            value={loading ? "—" : data?.summary?.totalChecks ?? checks.length}
             icon={<CircleDot size={18} />}
           />
 
           <SummaryCard
             label="Passed"
-            value={loading ? "—" : data?.summary.passed ?? passedChecks.length}
+            value={loading ? "—" : data?.summary?.passed ?? passedChecks.length}
             icon={<CheckCircle2 size={18} />}
             success
           />
 
           <SummaryCard
             label="Missing"
-            value={loading ? "—" : data?.summary.missing ?? missingChecks.length}
+            value={loading ? "—" : data?.summary?.missing ?? missingChecks.length}
             icon={<XCircle size={18} />}
             warning
           />
@@ -298,10 +298,10 @@ export default function DevOpsPage() {
               </span>
 
               <span className="font-medium text-[#B7D1C5]">
-                {data.summary.totalChecks > 0
+                {data?.summary?.totalChecks > 0
                   ? Math.round(
-                      (data.summary.passed /
-                        data.summary.totalChecks) *
+                      (data?.summary?.passed /
+                        data?.summary?.totalChecks) *
                         100
                     )
                   : 0}
@@ -314,9 +314,9 @@ export default function DevOpsPage() {
                 className="h-full rounded-full bg-[#B7D1C5] transition-all duration-700"
                 style={{
                   width: `${
-                    data.summary.totalChecks > 0
-                      ? (data.summary.passed /
-                          data.summary.totalChecks) *
+                    data?.summary?.totalChecks > 0
+                      ? (data?.summary?.passed /
+                          data?.summary?.totalChecks) *
                         100
                       : 0
                   }%`,
@@ -743,3 +743,7 @@ function Detail({
     </div>
   );
 }
+
+
+
+

@@ -1,5 +1,6 @@
-"use client";
-
+﻿"use client";
+import "./globals.css";
+import "./premium-ui.css";
 import "./globals.css";
 import AppShell from "./components/AppShell";
 import ScanRefreshBridge from "./components/ScanRefreshBridge";
@@ -17,3 +18,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+

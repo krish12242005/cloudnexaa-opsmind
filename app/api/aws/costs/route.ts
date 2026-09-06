@@ -1,3 +1,5 @@
+import { isDemoMode } from "@/lib/opsmind/demo-mode";
+import { DEMO_AWS_DATA } from "@/lib/opsmind/demo-data";
 import { NextResponse } from "next/server";
 import {
   CostExplorerClient,
@@ -5,6 +7,18 @@ import {
 } from "@aws-sdk/client-cost-explorer";
 
 export async function GET() {
+  if (isDemoMode()) {
+    return NextResponse.json({
+      success: true,
+      mode: "demo",
+      currentMonthSpend: DEMO_AWS_DATA.cost.currentMonthSpend,
+      projectedMonthSpend: DEMO_AWS_DATA.cost.projectedMonthSpend,
+      currency: DEMO_AWS_DATA.cost.currency,
+      cost: DEMO_AWS_DATA.cost,
+      data: DEMO_AWS_DATA.cost,
+    });
+  }
+
   try {
     const client = new CostExplorerClient({
       region: "us-east-1",
